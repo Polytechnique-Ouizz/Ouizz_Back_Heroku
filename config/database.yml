@@ -13,7 +13,7 @@ development:
   <<: *default
   #database: db/development.sqlite3
   adapter: sqlite3
-  database: db/shows_tonight_development.sqlite3
+  database: db/ouizz_development.sqlite3
   pool: 5
   timeout: 5000
 
