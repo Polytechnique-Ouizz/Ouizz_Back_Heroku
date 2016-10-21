@@ -1,0 +1,2 @@
+class Ouizzuser < ApplicationRecord
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ouizzusers
   resources :events
   get 'home/index'
   root 'home#index'

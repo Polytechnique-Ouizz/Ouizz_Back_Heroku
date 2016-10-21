@@ -1,0 +1,37 @@
+<%= form_for(ouizzuser) do |f| %>
+  <% if ouizzuser.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ouizzuser.errors.count, "error") %> prohibited this ouizzuser from being saved:</h2>
+
+      <ul>
+      <% ouizzuser.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
