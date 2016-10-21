@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :registrate]
+
+#On saute une étape de sécurité si on appelle REGISTRATE EN JSON
+skip_before_action :verify_authenticity_token, only: [:registrate]
 
   # GET /events
   # GET /events.json
@@ -61,6 +64,25 @@ class EventsController < ApplicationController
     end
   end
 
+  # POST /events/1/registrate.json
+  def registrate
+    # On crée un nouvel objet registration à partir des paramètres reçus
+    @registration = Registration.new(registration_params)
+    # On précise que cet object Registration dépend du event concerné
+    @registration.event = @event
+
+    respond_to do |format|
+      if @registration.save
+        format.json
+      else
+        format.json { render json: @registration.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -70,5 +92,10 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:user, :name, :location, :date, :time, :description, :capacity, :price, :image)
+    end
+
+      # On ajoute les paramètres qu'on va envoyer avec le registrations
+    def registration_params
+      params.require(:registration).permit(:user_name)
     end
 end
