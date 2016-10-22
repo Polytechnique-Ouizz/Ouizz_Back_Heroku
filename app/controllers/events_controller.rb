@@ -61,6 +61,24 @@ class EventsController < ApplicationController
     end
   end
 
+
+  # POST /events/1/register.json
+  def register
+    # On crée un nouvel objet registration à partir des paramètres reçus
+    @registration = Registration.new(registration_params)
+    # On précise que cet object Registration dépend de l'event concerné
+    @registration.event = @event
+
+    respond_to do |format|
+      if @registration.save
+        format.json
+      else
+        format.json { render json: @registration.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -71,4 +89,10 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:user, :name, :location, :date, :time, :description, :capacity, :price, :image)
     end
+
+    # On ajoute les paramètres qu'on va envoyer avec le registration
+    def registration_params
+      params.require(:registration).permit(:ouizzuser)
+    end
+
 end
