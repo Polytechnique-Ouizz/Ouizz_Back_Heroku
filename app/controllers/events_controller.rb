@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :register]
+
+
+  # On saute une etape de securite si on appel BOOK en JSON
+  skip_before_action :verify_authenticity_token, only: [:register]
 
   # GET /events
   # GET /events.json
