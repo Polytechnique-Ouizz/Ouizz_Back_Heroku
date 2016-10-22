@@ -1,5 +1,8 @@
 class OuizzusersController < ApplicationController
-  before_action :set_ouizzuser, only: [:show, :edit, :update, :destroy]
+  before_action :set_ouizzuser, only: [:show, :edit, :update, :destroy, :check]
+
+# On saute une etape de securite si on appel BOOK en JSON
+  skip_before_action :verify_authenticity_token, only: [:check]
 
   # GET /ouizzusers
   # GET /ouizzusers.json
@@ -61,6 +64,13 @@ class OuizzusersController < ApplicationController
     end
   end
 
+########################################
+ # POST /ouizzusers/1/check.json
+  def check
+   
+  end
+#######################################
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ouizzuser
@@ -71,4 +81,5 @@ class OuizzusersController < ApplicationController
     def ouizzuser_params
       params.require(:ouizzuser).permit(:username, :password, :email, :phone)
     end
+
 end
