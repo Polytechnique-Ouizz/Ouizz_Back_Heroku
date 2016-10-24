@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   # On saute une etape de securite si on appel BOOK en JSON
   skip_before_action :verify_authenticity_token, only: [:register]
 
+
   # GET /events
   # GET /events.json
   def index
@@ -93,10 +94,8 @@ class EventsController < ApplicationController
       params.require(:event).permit(:user, :name, :location, :date, :time, :description, :capacity, :price, :image)
     end
 
-
     # On ajoute les paramètres qu'on va envoyer avec le registration
     def registration_params
       params.require(:registration).permit(:ouizzuser_id)
     end
-
 end
