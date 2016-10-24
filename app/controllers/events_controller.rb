@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :registrate]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :register]
 
-#On saute une étape de sécurité si on appelle REGISTRATE EN JSON
-skip_before_action :verify_authenticity_token, only: [:registrate]
+
+  # On saute une etape de securite si on appel BOOK en JSON
+  skip_before_action :verify_authenticity_token, only: [:register]
 
   # GET /events
   # GET /events.json
@@ -64,11 +65,11 @@ skip_before_action :verify_authenticity_token, only: [:registrate]
     end
   end
 
-  # POST /events/1/registrate.json
-  def registrate
+  # POST /events/1/register.json
+  def register
     # On crée un nouvel objet registration à partir des paramètres reçus
     @registration = Registration.new(registration_params)
-    # On précise que cet object Registration dépend du event concerné
+    # On précise que cet object Registration dépend de l'event concerné
     @registration.event = @event
 
     respond_to do |format|
@@ -79,8 +80,6 @@ skip_before_action :verify_authenticity_token, only: [:registrate]
       end
     end
   end
-
-
 
 
   private
@@ -94,8 +93,10 @@ skip_before_action :verify_authenticity_token, only: [:registrate]
       params.require(:event).permit(:user, :name, :location, :date, :time, :description, :capacity, :price, :image)
     end
 
-      # On ajoute les paramètres qu'on va envoyer avec le registrations
+
+    # On ajoute les paramètres qu'on va envoyer avec le registration
     def registration_params
-      params.require(:registration).permit(:user_name)
+      params.require(:registration).permit(:ouizzuser_id)
     end
+
 end
