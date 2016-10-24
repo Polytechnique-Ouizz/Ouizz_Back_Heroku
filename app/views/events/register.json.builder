@@ -1,1 +1,1 @@
-json.extract! @registration, :id, :ouizzuser
+json.extract! @registration, :id, :username
