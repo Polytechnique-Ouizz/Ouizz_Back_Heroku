@@ -1,0 +1,1 @@
+json.array! @ouizzusers, partial: 'ouizzusers/ouizzuser', as: :ouizzuser

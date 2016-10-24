@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_name: MyString
+  ouizzuser: one
   event: one
 
 two:
-  user_name: MyString
+  ouizzuser: two
   event: two
