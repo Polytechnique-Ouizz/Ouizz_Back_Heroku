@@ -7,4 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-#test
+Event.create(
+name: "Ouizz meeting 2",
+location: "Ouizz HQ",
+date: "2016-10-21",
+time: "2000-01-01T16:30:00.000Z",
+description: "Skype with the coach",
+capacity: 6,
+price: 500
+
+)
+
+
+Event.create(
+id: 2,
+user: 1,
+name: "Ouizz Inauguration 2",
+location: "Ouizz HQ",
+date: "2016-11-16",
+time: "2000-01-01T18:00:00.000Z",
+description: "Ouizz release",
+capacity: 100,
+price: 1
+
+)
