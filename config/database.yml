@@ -11,7 +11,10 @@ default: &default
 
 development:
   <<: *default
+<<<<<<< HEAD
   #database: db/development.sqlite3
+=======
+>>>>>>> 9f323f7a124b32002f2258add6d81c9988139aa4
   adapter: sqlite3
   database: db/ouizz_development.sqlite3
   pool: 5
@@ -25,6 +28,10 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+<<<<<<< HEAD
 production:
   <<: *default
   database: db/production.sqlite3
+=======
+
+>>>>>>> 9f323f7a124b32002f2258add6d81c9988139aa4

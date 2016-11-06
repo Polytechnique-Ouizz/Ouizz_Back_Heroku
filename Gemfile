@@ -4,7 +4,17 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
+<<<<<<< HEAD
 gem 'sqlite3'
+=======
+gem 'sqlite3', group: :development
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+>>>>>>> 9f323f7a124b32002f2258add6d81c9988139aa4
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -27,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+<<<<<<< HEAD
 
 gem 'pg', group: :production
 gem 'sqlite3', group: :development 
@@ -35,6 +46,10 @@ group :production do
   gem 'thin'
   gem 'pg'
 end
+=======
+gem 'rack-cors', :require => 'rack/cors'
+
+>>>>>>> 9f323f7a124b32002f2258add6d81c9988139aa4
 gem "twitter-bootstrap-rails"
 
 # Use Capistrano for deployment

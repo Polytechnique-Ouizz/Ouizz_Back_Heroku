@@ -1,9 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9f323f7a124b32002f2258add6d81c9988139aa4
   ouizzuser: one
   event: one
 
 two:
   ouizzuser: two
+<<<<<<< HEAD
+=======
+=======
+  user_name: MyString
+  event: one
+
+two:
+  user_name: MyString
+>>>>>>> master
+>>>>>>> 9f323f7a124b32002f2258add6d81c9988139aa4
   event: two
