@@ -96,7 +96,7 @@ class EventsController < ApplicationController
 
     # On ajoute les paramètres qu'on va envoyer avec le registration
     def registration_params
-      params.require(:registration).permit(:ouizzuser_id)
+      params.require(:registration).permit(:ouizzuser_username)
     end
 
 end
